@@ -1,0 +1,87 @@
+# Access Controls.Json
+
+
+{
+  "implemented-requirements": [
+    {
+      "uuid": "b5cda033-ff3e-4b1f-9c7f-dc42e4fae8e2",
+      "control-id": "IAC-01.3",
+      "description": "The system maintains a current list of authorized users and service accounts through automated mechanisms that query and update user inventories from the LDAP directory. These inventories are regularly synchronized to ensure they reflect the latest authorized entities."
+    },
+    {
+      "uuid": "e4c1c4c8-8d7f-4c56-9e2c-5e7e9e2c63d9",
+      "control-id": "IAC-02",
+      "description": "The application employs a centralized authentication mechanism that utilizes LDAP to uniquely identify and authorize organizational users. This process includes validation of user credentials and roles against defined access policies to ensure comprehensive auditing."
+    },
+    {
+      "uuid": "f6e8e3cd-6b8d-4a1f-a3e4-1d3dc660f4e7",
+      "control-id": "IAC-02.2",
+      "description": "Automated mechanisms utilizing hashed tokens and time-limited access keys are implemented to provide replay-resistant authentication. The system checks for token expiration and validates request signatures to prevent replay attacks."
+    },
+    {
+      "uuid": "9c5c5b58-3d92-4cb1-b8c2-2a7b1e2d6d9f",
+      "control-id": "IAC-03",
+      "description": "The software uses LDAP to uniquely identify and authenticate third-party users and processes. Each third-party interaction is logged and verified against access policies, ensuring compliance with organizational standards."
+    },
+    {
+      "uuid": "a3b6e2cf-f2de-4eb0-ae6a-9c6c0e3e5f85",
+      "control-id": "IAC-04",
+      "description": "Bidirectional authentication for devices is enforced through cryptographically-based mechanisms, requiring valid credentials from both client and server sides during connection establishment. The system logs authentication attempts to maintain an audit trail."
+    },
+    {
+      "uuid": "c1d7f1e3-4e3e-4b1a-8f0f-4e2e7b9e9f2b",
+      "control-id": "IAC-04.1",
+      "description": "Device identification and authentication accuracy is ensured by managing the joining of devices to the domain via a centralized process that logs each event and verifies device credentials against existing records."
+    },
+    {
+      "uuid": "cc3bca85-5d96-4d9c-a4f7-ef8fef7c8d6e",
+      "control-id": "IAC-06",
+      "description": "The system enforces Multi-Factor Authentication (MFA) for remote access and critical system logins. This is achieved through automated prompts for additional authentication factors, which are logged for compliance and auditing purposes."
+    },
+    {
+      "uuid": "a5b8f3a4-5f5b-4f9b-8e50-0d6cd3c3f364",
+      "control-id": "IAC-08",
+      "description": "Role-Based Access Control (RBAC) policies are enforced across the system, allowing fine-grained access control based on user roles and permissions. Each access attempt is logged for auditing and compliance."
+    },
+    {
+      "uuid": "b7e8c6b0-2b3f-4c4b-a91c-0d7f6c1e3b2d",
+      "control-id": "IAC-13.1",
+      "description": "The system provides Single Sign-On (SSO) capabilities, allowing users to authenticate once and gain access to multiple services. This is managed through a centralized identity provider that validates session tokens."
+    },
+    {
+      "uuid": "d2f845c0-8b5d-4c3b-8a06-bb5a6c7a5e84",
+      "control-id": "IAC-16",
+      "description": "Privileged access rights are restricted and controlled through automated mechanisms that validate user roles and permissions, ensuring that only authorized personnel can access sensitive functions within the system."
+    },
+    {
+      "uuid": "b6c4f8a7-1a83-4f12-b964-1c52b08f5c1f",
+      "control-id": "IAC-20",
+      "description": "Logical Access Control (LAC) permissions are enforced based on the principle of least privilege, ensuring that users only have access to the resources necessary for their roles. Permission changes are logged for auditing."
+    },
+    {
+      "uuid": "c8b7c5a4-9ae0-45d5-8e7b-d5f8b1ee2f8a",
+      "control-id": "IAC-21",
+      "description": "The concept of least privilege is utilized by ensuring that users are granted only the access necessary to perform their job functions. Access reviews are conducted regularly to maintain compliance with this principle."
+    },
+    {
+      "uuid": "b3a7c8d0-e123-439c-9f63-8e3c8f8d8c2f",
+      "control-id": "IAC-21.3",
+      "description": "Privileged accounts are restricted to management-approved personnel, and access requests are logged and reviewed to ensure compliance with the organization's access control policies."
+    },
+    {
+      "uuid": "e5f8c7b2-8a5b-4c8b-b9b5-1f5b4b7e6c2e",
+      "control-id": "IAC-22",
+      "description": "The system enforces a limit on consecutive invalid login attempts, automatically locking accounts after a defined number of failures. This is logged, and alerts are generated for security monitoring."
+    },
+    {
+      "uuid": "f7b6e8f3-4c3d-4e97-a3e6-4b7e9b0c8e3f",
+      "control-id": "IAC-23",
+      "description": "Concurrent session limits for each system account are enforced, preventing excessive session creation. Each session establishment is logged for compliance and monitoring."
+    },
+    {
+      "uuid": "c3d7e5d1-5c8a-4b1e-8e6c-1b8e2e5b7a9b",
+      "control-id": "IAC-29",
+      "description": "Attribute-Based Access Control (ABAC) is implemented for dynamic authorizations, utilizing user attributes for policy-driven access decisions. Each access decision is logged for auditing and compliance."
+    }
+  ]
+}
