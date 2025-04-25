@@ -5,58 +5,57 @@
 
 ## 1. Encryption Methods
 - **Types of Encryption Used**: The service employs various encryption mechanisms, including:
-  - Server-Side Encryption (SSE) with customer-provided keys (SSE-C).
-  - Key Management Service (KMS) integration for managing encryption keys.
-  - Advanced Encryption Standard (AES) with a 256-bit key size (AES-256-GCM).
+  - **Server-Side Encryption** (S3, KMS, SSE-C)
+  - **AES** (specifically AES-256-GCM for certain operations)
+  - **Hashing Algorithms**: SHA256, BLAKE2b512, and HighwayHash256 for data integrity.
   
 - **Encryption Algorithms and Key Sizes**:
-  - **AES-256-GCM**: Used for encrypting data to ensure confidentiality.
-  - **KMS**: Implements key management practices and facilitates encryption/decryption processes.
-  
+  - **AES-256-GCM** is utilized for encrypting data, ensuring a strong level of security.
+  - The service also uses a 32-byte encryption key generated securely via `crypto/rand`.
+
 - **Encryption at Rest vs. In Transit**:
-  - **At Rest**: Data stored in S3-like service is encrypted using server-side encryption methods, including KMS and SSE-C.
-  - **In Transit**: Data encryption is supported during transmission using protocols like TLS, ensuring secure communication.
+  - **At Rest**: Data stored in the object storage is encrypted using server-side encryption methods, ensuring confidentiality.
+  - **In Transit**: The service utilizes secure communication protocols, including TLS, to protect data during transmission.
 
 ## 2. Key Management
-- **Key Generation and Storage**:
-  - Keys are generated securely using random number generators and managed via KMS.
-  - The service handles user-defined metadata to manage keys effectively.
-  
+- **Key Generation and Storage**: 
+  - Encryption keys are generated securely, with mechanisms in place to manage their lifecycle using a Key Management Service (KMS).
+  - Keys are stored securely and referenced within metadata for encryption operations.
+
 - **Key Rotation Policies**:
-  - The code includes batch job processing for key rotation, ensuring keys are updated regularly to maintain security.
-  
+  - The service includes functionality for batch job key rotation, ensuring that encryption keys can be updated periodically to enhance security.
+
 - **Key Access Controls**:
-  - Access to keys is controlled through strict authentication measures to ensure only authorized entities can access sensitive operations.
-  
+  - Key management operations are subject to strict authorization checks to ensure only authorized entities can access or manage encryption keys.
+
 - **Hardware Security Modules (HSM) Usage**:
-  - The service integrates with KMS, which may utilize HSM for secure key management, although specifics on HSM are not explicitly mentioned.
+  - While not explicitly mentioned, the use of KMS suggests that the encryption keys may be managed by secure hardware solutions to enhance security.
 
 ## 3. Data Protection
 - **Data Classification and Handling**:
-  - The service emphasizes proper tagging and organization of object data, which is critical for compliance and auditing.
-  
+  - The service emphasizes secure handling of sensitive data through encryption and structured metadata management, ensuring data is adequately classified based on security needs.
+
 - **Secure Storage Mechanisms**:
-  - Configuration data is encrypted before storage to protect sensitive information, ensuring it is not stored in plaintext.
-  
+  - Data is stored using server-side encryption methods, with additional metadata management to track and control access effectively.
+
 - **Data Masking and Anonymization**:
-  - While explicit data masking is not detailed, the use of error handling to prevent exposure of sensitive data in error messages contributes to data confidentiality.
-  
+  - The code does not explicitly mention data masking or anonymization techniques; however, the secure handling of metadata and encryption suggests a focus on protecting sensitive information.
+
 - **Secure Data Transfer Protocols**:
-  - The implementation of secure file transfer protocols (e.g., SFTP using SSH) ensures that data in transit is encrypted with strong algorithms.
+  - The service employs TLS for secure data transfer, ensuring that data remains confidential while in transit.
 
 ## 4. Security Controls
 - **TLS/SSL Configurations**:
-  - The service utilizes TLS for encrypting data in transit, critical for maintaining confidentiality and integrity.
-  
-- **Certificate Management**:
-  - While specific certificate management details are not provided, the use of secure protocols implies adherence to proper certificate handling practices.
-  
-- **Secure Communication Protocols**:
-  - Several secure communication protocols are referenced, including SFTP with strong key exchange algorithms and encryption methods.
-  
-- **Cryptographic Libraries and Implementations**:
-  - The code leverages cryptographic libraries (e.g., for AES) and implements various hash algorithms (SHA256, BLAKE2b512) to ensure data integrity.
+  - The service incorporates TLS to secure communications, ensuring data integrity and confidentiality during transmission.
 
-## Conclusion
-The service demonstrates a robust framework for encryption and data protection, focusing on strong encryption methods, effective key management, and secure data handling practices. Compliance with security standards is emphasized through error handling, logging, and secure communication protocols, although explicit details on logging and HSM usage are minimal.
+- **Certificate Management**:
+  - Although specific details on certificate management are not provided, the use of TLS implies a need for managing SSL/TLS certificates appropriately.
+
+- **Secure Communication Protocols**:
+  - Protocols such as SFTP over SSH are used, with support for strong encryption algorithms to ensure secure file transfers.
+
+- **Cryptographic Libraries and Implementations**:
+  - The service employs standard cryptographic libraries for operations such as key generation, encryption, and hashing, ensuring best practices in cryptographic implementations.
+
+Overall, the service demonstrates a robust framework for encryption and data protection, focusing on key management, secure data handling, and compliance with established security standards.
 ```
