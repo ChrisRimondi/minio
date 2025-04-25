@@ -1,60 +1,45 @@
 # Encryption Summary.Md
 
-```markdown
 # Encryption and Data Protection Summary
 
 ## 1. Encryption Methods
-
-- **Types of Encryption Used**: 
-  - The service employs both symmetric and asymmetric encryption methods. 
-
-- **Encryption Algorithms and Key Sizes**: 
-  - Symmetric encryption is conducted using AES (Advanced Encryption Standard) with a key size of 256 bits.
-  - Asymmetric encryption is implemented using RSA (Rivest-Shamir-Adleman) with a key size of 2048 bits.
-
-- **Encryption at Rest vs. In Transit**: 
-  - Data at rest is encrypted using AES-256.
-  - Data in transit is secured through TLS (Transport Layer Security) to ensure confidentiality and integrity during transmission.
+- **Types of Encryption Used**: The service employs multiple encryption mechanisms including AES for symmetric encryption and KMS (Key Management Service) for managing encryption keys.
+- **Encryption Algorithms and Key Sizes**:
+  - **AES-256-GCM**: Utilized for encrypting data, providing strong confidentiality through a 256-bit key size.
+  - **KMS**: Used for secure key management, although specific key sizes are not detailed.
+  - **Hash Algorithms**: Includes SHA256, BLAKE2b512, and HighwayHash256 for ensuring data integrity.
+- **Encryption at Rest vs. In Transit**:
+  - Data is encrypted at rest using server-side encryption (SSE), specifically through S3 server-side encryption and customer-provided keys (SSE-C).
+  - Encryption in transit is supported through protocols like TLS, ensuring secure communication.
 
 ## 2. Key Management
-
 - **Key Generation and Storage**: 
-  - Keys are generated using a secure random number generator and are stored securely in an encrypted format.
-
+  - Keys are generated securely using a random number generator and managed via a KMS, ensuring that sensitive encryption keys are not stored in plaintext.
 - **Key Rotation Policies**: 
-  - The service implements a regular key rotation policy, requiring keys to be rotated every 12 months or upon a security incident.
-
+  - The codebase indicates a batch job for key rotation, implying regular updates to encryption keys to enhance security.
 - **Key Access Controls**: 
-  - Access to encryption keys is restricted to authorized personnel only, and access logs are maintained for auditing purposes.
-
+  - Access to keys is controlled through authorization mechanisms, ensuring that only authenticated users can manage or utilize encryption keys.
 - **Hardware Security Modules (HSM) Usage**: 
-  - The service utilizes HSMs for the generation and storage of cryptographic keys, ensuring enhanced security against key compromise.
+  - While specific HSM usage is not mentioned, the reliance on KMS suggests a focus on hardware-based key management practices for enhanced security.
 
 ## 3. Data Protection
-
 - **Data Classification and Handling**: 
-  - Data is classified based on sensitivity levels and handled according to established data protection policies.
-
+  - The service manages and classifies sensitive data, employing encryption to protect against unauthorized access.
 - **Secure Storage Mechanisms**: 
-  - Sensitive data is stored in encrypted databases, utilizing strong encryption methods to protect against unauthorized access.
-
+  - Data is securely stored in S3-like environments with metadata management to track states and versions, enhancing data integrity.
 - **Data Masking and Anonymization**: 
-  - The service employs data masking techniques for non-production environments to protect sensitive information during testing and development.
-
+  - The code does not explicitly mention data masking or anonymization techniques.
 - **Secure Data Transfer Protocols**: 
-  - Data transfers are conducted over secure channels using protocols such as HTTPS, ensuring that data is protected while in transit.
+  - The implementation of SFTP using SSH and TLS protocols for secure file transfers indicates a commitment to protecting data during transmission.
 
 ## 4. Security Controls
-
 - **TLS/SSL Configurations**: 
-  - The service uses TLS 1.2 or higher for secure communications, with proper ciphers configured to prevent vulnerabilities.
-
+  - TLS is utilized for securing communications, ensuring data confidentiality and integrity during transit.
 - **Certificate Management**: 
-  - The service incorporates a robust certificate management process, including regular updates and renewals of SSL/TLS certificates.
-
+  - While specific certificate management practices are not detailed, the use of secure protocols implies adherence to proper certificate handling.
 - **Secure Communication Protocols**: 
-  - In addition to TLS, other secure communication protocols are employed to ensure data integrity and confidentiality.
-
+  - The service employs SFTP and TLS, securing data transfers and communication channels.
 - **Cryptographic Libraries and Implementations**: 
-  - The service makes use of well-established cryptographic libraries that are regularly updated to mitigate known vulnerabilities and ensure compliance with best practices.
-```
+  - The code references cryptographic libraries for implementing encryption and hashing, ensuring compliance with security standards.
+
+Overall, the service's encryption and data protection mechanisms emphasize confidentiality, integrity, and compliance with security standards, reflecting a robust approach to managing sensitive information throughout its lifecycle.
