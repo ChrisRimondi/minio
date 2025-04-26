@@ -4,84 +4,84 @@
 {
   "implemented-requirements": [
     {
-      "uuid": "b5cda033-ff3e-4b1f-9c7f-dc42e4fae8e2",
+      "uuid": "d1f5b428-8646-4f1f-9d8b-2e2c8b6a7f47",
       "control-id": "IAC-01.3",
-      "description": "The system maintains a current list of authorized users and service accounts through automated mechanisms that query and update user inventories from the LDAP directory. These inventories are regularly synchronized to ensure they reflect the latest authorized entities."
+      "description": "The system maintains an automated inventory of authorized users and service accounts by querying the user management database (e.g., LDAP) on a scheduled basis, ensuring that any additions or removals of accounts are reflected in real-time to maintain compliance."
     },
     {
-      "uuid": "e4c1c4c8-8d7f-4c56-9e2c-5e7e9e2c63d9",
+      "uuid": "a2b3c4d5-e6f7-8901-abcdef23ghij",
       "control-id": "IAC-02",
-      "description": "The application employs a centralized authentication mechanism that utilizes LDAP to uniquely identify and authorize organizational users. This process includes validation of user credentials and roles against defined access policies to ensure comprehensive auditing."
+      "description": "The software implements a centralized authentication mechanism using JWT tokens, which uniquely identifies users and provides an audit trail of user actions through logging of all authentication attempts."
     },
     {
-      "uuid": "f6e8e3cd-6b8d-4a1f-a3e4-1d3dc660f4e7",
+      "uuid": "f3e4d5c6-b7a8-9a0b-abcdef12ghij",
       "control-id": "IAC-02.2",
-      "description": "Automated mechanisms utilizing hashed tokens and time-limited access keys are implemented to provide replay-resistant authentication. The system checks for token expiration and validates request signatures to prevent replay attacks."
+      "description": "The system employs a nonce-based approach for replay-resistant authentication by generating unique session tokens that are validated against a database of active sessions, ensuring the integrity of each authentication attempt."
     },
     {
-      "uuid": "9c5c5b58-3d92-4cb1-b8c2-2a7b1e2d6d9f",
+      "uuid": "b7f8a9b1-c2d3-4f5e-a6b7-8c9d0e1f2a3b",
       "control-id": "IAC-03",
-      "description": "The software uses LDAP to uniquely identify and authenticate third-party users and processes. Each third-party interaction is logged and verified against access policies, ensuring compliance with organizational standards."
+      "description": "Third-party users are authenticated through OAuth 2.0, which maintains a centralized record of third-party access tokens and logs all authorization attempts to ensure compliance with access control policies."
     },
     {
-      "uuid": "a3b6e2cf-f2de-4eb0-ae6a-9c6c0e3e5f85",
+      "uuid": "c3a4b5d6-e7f8-90a1-b2c3-d4e5f6g7h8i9",
       "control-id": "IAC-04",
-      "description": "Bidirectional authentication for devices is enforced through cryptographically-based mechanisms, requiring valid credentials from both client and server sides during connection establishment. The system logs authentication attempts to maintain an audit trail."
+      "description": "Bidirectional authentication for devices is managed through X.509 certificates, which must be validated against a central Certificate Authority (CA) before allowing any device to establish a connection."
     },
     {
-      "uuid": "c1d7f1e3-4e3e-4b1a-8f0f-4e2e7b9e9f2b",
+      "uuid": "d4e5f6g7-h8i9-0a1b-c2d3-e4f5g6h7i8j9",
       "control-id": "IAC-04.1",
-      "description": "Device identification and authentication accuracy is ensured by managing the joining of devices to the domain via a centralized process that logs each event and verifies device credentials against existing records."
+      "description": "The system implements a device attestation process that leverages device certificates validated against a corporate CA during the initial configuration phase, ensuring that only trusted devices join the network."
     },
     {
-      "uuid": "cc3bca85-5d96-4d9c-a4f7-ef8fef7c8d6e",
+      "uuid": "e5f6g7h8-i9j0-1a2b-c3d4-e5f6g7h8i9j0",
       "control-id": "IAC-06",
-      "description": "The system enforces Multi-Factor Authentication (MFA) for remote access and critical system logins. This is achieved through automated prompts for additional authentication factors, which are logged for compliance and auditing purposes."
+      "description": "Multi-Factor Authentication (MFA) is enforced for all remote network access by requiring users to provide a second factor, such as a one-time code sent via SMS or an authenticator app, in addition to their password."
     },
     {
-      "uuid": "a5b8f3a4-5f5b-4f9b-8e50-0d6cd3c3f364",
+      "uuid": "f6g7h8i9-j0k1-2a3b-c4d5-e6f7g8h9i0j1",
       "control-id": "IAC-08",
-      "description": "Role-Based Access Control (RBAC) policies are enforced across the system, allowing fine-grained access control based on user roles and permissions. Each access attempt is logged for auditing and compliance."
+      "description": "Role-Based Access Control (RBAC) is implemented using a policy engine that evaluates user roles and enforces access permissions dynamically based on the principle of least privilege across all resources."
     },
     {
-      "uuid": "b7e8c6b0-2b3f-4c4b-a91c-0d7f6c1e3b2d",
+      "uuid": "g7h8i9j0-k1l2-3a4b-c5d6-e7f8g9h0i1j2",
       "control-id": "IAC-13.1",
-      "description": "The system provides Single Sign-On (SSO) capabilities, allowing users to authenticate once and gain access to multiple services. This is managed through a centralized identity provider that validates session tokens."
+      "description": "Single Sign-On (SSO) capabilities are provided through a centralized identity provider, allowing users to authenticate once and gain access to multiple systems without repeated logins."
     },
     {
-      "uuid": "d2f845c0-8b5d-4c3b-8a06-bb5a6c7a5e84",
+      "uuid": "h8i9j0k1-l2m3-4a5b-c6d7-e8f9g0h1i2j3",
       "control-id": "IAC-16",
-      "description": "Privileged access rights are restricted and controlled through automated mechanisms that validate user roles and permissions, ensuring that only authorized personnel can access sensitive functions within the system."
+      "description": "Privileged Account Management (PAM) is enforced by utilizing a vault solution that controls access to sensitive credentials and requires approval workflows for any access to privileged accounts."
     },
     {
-      "uuid": "b6c4f8a7-1a83-4f12-b964-1c52b08f5c1f",
+      "uuid": "i9j0k1l2-m3n4-5a6b-c7d8-e9f0g1h2i3j4",
       "control-id": "IAC-20",
-      "description": "Logical Access Control (LAC) permissions are enforced based on the principle of least privilege, ensuring that users only have access to the resources necessary for their roles. Permission changes are logged for auditing."
+      "description": "Logical Access Control (LAC) permissions are enforced through a centralized policy management system that ensures access is granted strictly based on user roles and responsibilities."
     },
     {
-      "uuid": "c8b7c5a4-9ae0-45d5-8e7b-d5f8b1ee2f8a",
+      "uuid": "j0k1l2m3-n4o5-6a7b-c8d9-e0f1g2h3i4j5",
       "control-id": "IAC-21",
-      "description": "The concept of least privilege is utilized by ensuring that users are granted only the access necessary to perform their job functions. Access reviews are conducted regularly to maintain compliance with this principle."
+      "description": "The concept of least privilege is applied by ensuring that user roles are defined with the minimum necessary permissions, and access reviews are conducted regularly to adjust permissions as needed."
     },
     {
-      "uuid": "b3a7c8d0-e123-439c-9f63-8e3c8f8d8c2f",
+      "uuid": "k1l2m3n4-o5p6-7a8b-c9d0-e1f2g3h4i5j6",
       "control-id": "IAC-21.3",
-      "description": "Privileged accounts are restricted to management-approved personnel, and access requests are logged and reviewed to ensure compliance with the organization's access control policies."
+      "description": "Privileged accounts are restricted to management-approved roles only, with a formal approval process in place for any assignments or modifications to privileged account access."
     },
     {
-      "uuid": "e5f8c7b2-8a5b-4c8b-b9b5-1f5b4b7e6c2e",
+      "uuid": "l2m3n4o5-p6q7-8a9b-c0d1-e2f3g4h5i6j7",
       "control-id": "IAC-22",
-      "description": "The system enforces a limit on consecutive invalid login attempts, automatically locking accounts after a defined number of failures. This is logged, and alerts are generated for security monitoring."
+      "description": "The system enforces an account lockout policy that limits consecutive invalid login attempts to five within a 15-minute window, automatically locking the account if exceeded."
     },
     {
-      "uuid": "f7b6e8f3-4c3d-4e97-a3e6-4b7e9b0c8e3f",
+      "uuid": "m3n4o5p6-q7r8-9a0b-c1d2-e3f4g5h6i7j8",
       "control-id": "IAC-23",
-      "description": "Concurrent session limits for each system account are enforced, preventing excessive session creation. Each session establishment is logged for compliance and monitoring."
+      "description": "Concurrent session control is maintained by limiting users to three active sessions at any given time, with real-time monitoring of session counts enforced by the authentication server."
     },
     {
-      "uuid": "c3d7e5d1-5c8a-4b1e-8e6c-1b8e2e5b7a9b",
+      "uuid": "n4o5p6q7-r8s9-0a1b-c2d3-e4f5g6h7i8j9",
       "control-id": "IAC-29",
-      "description": "Attribute-Based Access Control (ABAC) is implemented for dynamic authorizations, utilizing user attributes for policy-driven access decisions. Each access decision is logged for auditing and compliance."
+      "description": "Attribute-Based Access Control (ABAC) is implemented using policies that evaluate user attributes dynamically at access request time, facilitating granular and context-aware access control."
     }
   ]
 }
