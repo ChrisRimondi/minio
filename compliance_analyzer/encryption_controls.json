@@ -1,0 +1,62 @@
+# Encryption Controls.Json
+
+
+{
+  "implemented-requirements": [
+    {
+      "uuid": "1c7a4c3e-7e2b-4f4b-9697-0c80c2e4c2c3",
+      "control-id": "CRY-01.3",
+      "description": "MinIO employs cryptographic mechanisms to ensure the confidentiality and integrity of information during preparation for transmission and reception. Data in transit is encrypted using TLS (Transport Layer Security), which is configured to ensure secure communications between clients and servers, thus preventing unauthorized access and ensuring data integrity."
+    },
+    {
+      "uuid": "a5d1c5f2-3e3f-4f6c-8f0e-3b5c8e1b0d01",
+      "control-id": "CRY-01.4",
+      "description": "MinIO uses cryptographic mechanisms to conceal or randomize communication patterns by utilizing HTTPS for secure data transfer. This implementation ensures that all communication is encrypted, thus obscuring the data patterns from potential interceptors."
+    },
+    {
+      "uuid": "e7f4a3f6-5d34-4b3a-ae34-2c9e4f6b3e3c",
+      "control-id": "CRY-02",
+      "description": "Automated mechanisms for authenticating to cryptographic modules are implemented in MinIO through the use of access and secret keys. These keys are securely managed and validated during the authentication process to ensure that only authorized systems can access sensitive cryptographic functions."
+    },
+    {
+      "uuid": "d5c4f3e2-4e00-4b6d-bb01-2b1b8e5a8b3e",
+      "control-id": "CRY-06",
+      "description": "MinIO employs cryptographic mechanisms to protect the confidentiality and integrity of non-console administrative access. Access is managed through secure keys, and administrative operations are logged and monitored to prevent unauthorized access."
+    },
+    {
+      "uuid": "3f9a2c4b-7e2b-4b4b-b3a1-2c9e4f6c8e6e",
+      "control-id": "CRY-08",
+      "description": "MinIO implements an internal Public Key Infrastructure (PKI) by utilizing a Key Management Service (KMS) for key management. The service supports integration with various KMS providers to ensure secure key generation, storage, and lifecycle management."
+    },
+    {
+      "uuid": "4b1a2e2d-8f3c-4f2d-8a45-2c9e4f6c8e7f",
+      "control-id": "CRY-09",
+      "description": "MinIO facilitates cryptographic key management controls by securely generating and storing keys through its KMS integration. This ensures the confidentiality, integrity, and availability of cryptographic keys used for data encryption and decryption."
+    },
+    {
+      "uuid": "5e4a6c3d-7e2b-4f6c-9b3e-2c9e4f6d7e8f",
+      "control-id": "CRY-09.1",
+      "description": "MinIO supports the production and management of symmetric cryptographic keys using Federal Information Processing Standards (FIPS)-compliant key management technology. This implementation ensures that all keys are generated, used, and rotated according to FIPS guidelines."
+    },
+    {
+      "uuid": "6c4a3f6d-3e1b-4c6b-8a34-2c9e4f6d8e9f",
+      "control-id": "CRY-09.2",
+      "description": "MinIO facilitates the production and management of asymmetric cryptographic keys through its integration with KMS, ensuring that the user's private keys are protected according to FIPS-compliant processes."
+    },
+    {
+      "uuid": "7d5a3f6e-4b2c-4b2d-bb34-2c9e4f6e9e0f",
+      "control-id": "CRY-09.4",
+      "description": "Secure distribution of symmetric and asymmetric cryptographic keys is facilitated by MinIO through its integration with recognized key management technologies. This ensures that key distribution processes are secure and compliant with industry standards."
+    },
+    {
+      "uuid": "8e6a4f9a-7c2f-4c8b-9b34-2c9e4f6f0e1f",
+      "control-id": "CRY-09.5",
+      "description": "MinIO ensures that cryptographic keys are bound to individual identities by managing user access through IAM policies. This implementation restricts key access to authorized identities only."
+    },
+    {
+      "uuid": "9f7b6c2e-3e2b-4b1d-bb24-2c9e4f6g1e2f",
+      "control-id": "CRY-09.6",
+      "description": "MinIO provides customers with appropriate key management guidance whenever cryptographic keys are shared. This includes clear documentation and best practices for handling and securing keys."
+    }
+  ]
+}

@@ -4,84 +4,84 @@
 {
   "implemented-requirements": [
     {
-      "uuid": "d1f5b428-8646-4f1f-9d8b-2e2c8b6a7f47",
+      "uuid": "e1b74de7-8c0a-4e0c-8c44-18c6e4c8b6b9",
       "control-id": "IAC-01.3",
-      "description": "The system maintains an automated inventory of authorized users and service accounts by querying the user management database (e.g., LDAP) on a scheduled basis, ensuring that any additions or removals of accounts are reflected in real-time to maintain compliance."
+      "description": "The MinIO service maintains an automated inventory of authorized users and service accounts through its IAM system, which regularly synchronizes with external identity providers and internal user databases to ensure an up-to-date list of all active users and service accounts."
     },
     {
-      "uuid": "a2b3c4d5-e6f7-8901-abcdef23ghij",
+      "uuid": "f300d3c2-1e8d-4339-8b5c-7a9a0e6c7b5d",
       "control-id": "IAC-02",
-      "description": "The software implements a centralized authentication mechanism using JWT tokens, which uniquely identifies users and provides an audit trail of user actions through logging of all authentication attempts."
+      "description": "MinIO employs a robust Identity and Access Management (IAM) system that uniquely identifies users through access and secret keys, ensuring that all organizational users are authenticated, authorized, and audited before accessing sensitive data."
     },
     {
-      "uuid": "f3e4d5c6-b7a8-9a0b-abcdef12ghij",
+      "uuid": "a0e45cd7-3bc3-4b7e-bb58-2a6c740a5c9d",
       "control-id": "IAC-02.2",
-      "description": "The system employs a nonce-based approach for replay-resistant authentication by generating unique session tokens that are validated against a database of active sessions, ensuring the integrity of each authentication attempt."
+      "description": "The service utilizes JSON Web Tokens (JWT) for authentication, which are time-bound and signed, providing replay-resistant authentication mechanisms to prevent unauthorized access."
     },
     {
-      "uuid": "b7f8a9b1-c2d3-4f5e-a6b7-8c9d0e1f2a3b",
+      "uuid": "7c6d3e4e-8c1e-4e2d-8e4d-cd4f1b783e2c",
       "control-id": "IAC-03",
-      "description": "Third-party users are authenticated through OAuth 2.0, which maintains a centralized record of third-party access tokens and logs all authorization attempts to ensure compliance with access control policies."
+      "description": "MinIO's IAM system supports third-party user identification and access control through integration with external identity providers, ensuring that third-party users are authenticated, authorized, and logged appropriately."
     },
     {
-      "uuid": "c3a4b5d6-e7f8-90a1-b2c3-d4e5f6g7h8i9",
+      "uuid": "c3b77d24-0e58-44d2-8cd7-3f0d4c9e6f0e",
       "control-id": "IAC-04",
-      "description": "Bidirectional authentication for devices is managed through X.509 certificates, which must be validated against a central Certificate Authority (CA) before allowing any device to establish a connection."
+      "description": "The service implements bidirectional authentication mechanisms that uniquely identify and authenticate devices connecting to MinIO, ensuring secure communication through cryptographic methods."
     },
     {
-      "uuid": "d4e5f6g7-h8i9-0a1b-c2d3-e4f5g6h7i8j9",
+      "uuid": "d4b6c5b4-f3b3-4c75-8f99-9a5f1c9e5e6d",
       "control-id": "IAC-04.1",
-      "description": "The system implements a device attestation process that leverages device certificates validated against a corporate CA during the initial configuration phase, ensuring that only trusted devices join the network."
+      "description": "MinIO ensures accurate device identification and authentication by centrally managing the joining of systems to the domain through its IAM policies, which validate devices during the initial asset configuration process."
     },
     {
-      "uuid": "e5f6g7h8-i9j0-1a2b-c3d4-e5f6g7h8i9j0",
+      "uuid": "d3eebc2f-1c63-4f5d-8cdd-9a1f9e4e2179",
       "control-id": "IAC-06",
-      "description": "Multi-Factor Authentication (MFA) is enforced for all remote network access by requiring users to provide a second factor, such as a one-time code sent via SMS or an authenticator app, in addition to their password."
+      "description": "The service enforces Multi-Factor Authentication (MFA) for sensitive access scenarios, such as remote network access and critical operations, by requiring additional authentication factors beyond just passwords."
     },
     {
-      "uuid": "f6g7h8i9-j0k1-2a3b-c4d5-e6f7g8h9i0j1",
+      "uuid": "b5a50c85-8c83-4b7b-9e5d-8f9e4b5d5f7a",
       "control-id": "IAC-08",
-      "description": "Role-Based Access Control (RBAC) is implemented using a policy engine that evaluates user roles and enforces access permissions dynamically based on the principle of least privilege across all resources."
+      "description": "MinIO implements Role-Based Access Control (RBAC) by creating policies that define permissions based on user roles, ensuring that access to sensitive data is granted based on need-to-know principles."
     },
     {
-      "uuid": "g7h8i9j0-k1l2-3a4b-c5d6-e7f8g9h0i1j2",
+      "uuid": "f2b7e1e4-5c4d-4ae7-bc2a-27b6c5f5e5f5",
       "control-id": "IAC-13.1",
-      "description": "Single Sign-On (SSO) capabilities are provided through a centralized identity provider, allowing users to authenticate once and gain access to multiple systems without repeated logins."
+      "description": "The service provides Single Sign-On (SSO) capabilities through integration with identity providers, allowing users to authenticate once and gain access to multiple systems without needing to re-enter credentials."
     },
     {
-      "uuid": "h8i9j0k1-l2m3-4a5b-c6d7-e8f9g0h1i2j3",
+      "uuid": "a3c76b1a-e0c3-4941-9e1f-e5f0e5d5e6a2",
       "control-id": "IAC-16",
-      "description": "Privileged Account Management (PAM) is enforced by utilizing a vault solution that controls access to sensitive credentials and requires approval workflows for any access to privileged accounts."
+      "description": "MinIO restricts privileged access rights through its IAM policies, which ensure that only authorized users can perform actions that require elevated permissions, thereby controlling access effectively."
     },
     {
-      "uuid": "i9j0k1l2-m3n4-5a6b-c7d8-e9f0g1h2i3j4",
+      "uuid": "e8d5f9a8-6c1d-4d0e-8e9f-9a5e1c3c4e4e",
       "control-id": "IAC-20",
-      "description": "Logical Access Control (LAC) permissions are enforced through a centralized policy management system that ensures access is granted strictly based on user roles and responsibilities."
+      "description": "The service enforces Logical Access Control (LAC) permissions using IAM policies, which are designed to conform to the principle of least privilege, ensuring users can only access resources necessary for their role."
     },
     {
-      "uuid": "j0k1l2m3-n4o5-6a7b-c8d9-e0f1g2h3i4j5",
+      "uuid": "d9c4b2d8-9c3e-4f55-9b6a-4e7f0c4f5e6e",
       "control-id": "IAC-21",
-      "description": "The concept of least privilege is applied by ensuring that user roles are defined with the minimum necessary permissions, and access reviews are conducted regularly to adjust permissions as needed."
+      "description": "MinIO implements the concept of least privilege through its IAM policies, allowing only authorized access to processes necessary for users to fulfill their job functions in accordance with organizational business functions."
     },
     {
-      "uuid": "k1l2m3n4-o5p6-7a8b-c9d0-e1f2g3h4i5j6",
+      "uuid": "f4b5c7d6-3c1f-4d7e-8c5b-0f1e3c4e5f5f",
       "control-id": "IAC-21.3",
-      "description": "Privileged accounts are restricted to management-approved roles only, with a formal approval process in place for any assignments or modifications to privileged account access."
+      "description": "The service restricts privileged account assignments to authorized personnel only, managed through IAM policies that enforce approval for any assignment of privileged roles."
     },
     {
-      "uuid": "l2m3n4o5-p6q7-8a9b-c0d1-e2f3g4h5i6j7",
+      "uuid": "b2c6f0f3-2d8f-4c6e-9d9e-bc5e9f8e5c5d",
       "control-id": "IAC-22",
-      "description": "The system enforces an account lockout policy that limits consecutive invalid login attempts to five within a 15-minute window, automatically locking the account if exceeded."
+      "description": "MinIO enforces a limit on consecutive invalid login attempts by locking user accounts after a defined threshold is reached, thereby enhancing security against brute-force attacks."
     },
     {
-      "uuid": "m3n4o5p6-q7r8-9a0b-c1d2-e3f4g5h6i7j8",
+      "uuid": "c3e6b8d5-2d4e-4b9e-9c7f-7e9b4e5e6b4e",
       "control-id": "IAC-23",
-      "description": "Concurrent session control is maintained by limiting users to three active sessions at any given time, with real-time monitoring of session counts enforced by the authentication server."
+      "description": "The service limits the number of concurrent sessions for each user account through IAM settings, ensuring resource allocation is managed effectively and preventing session hijacking."
     },
     {
-      "uuid": "n4o5p6q7-r8s9-0a1b-c2d3-e4f5g6h7i8j9",
+      "uuid": "a6b8e1c4-4e9f-46db-8e6f-2f1c7a5c7e5e",
       "control-id": "IAC-29",
-      "description": "Attribute-Based Access Control (ABAC) is implemented using policies that evaluate user attributes dynamically at access request time, facilitating granular and context-aware access control."
+      "description": "MinIO employs Attribute-Based Access Control (ABAC) by utilizing user attributes in its IAM policies, allowing for dynamic authorizations that support the secure sharing of information."
     }
   ]
 }
